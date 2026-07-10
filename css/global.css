@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -12,6 +13,14 @@ body {
   background: var(--color-background);
   font-family: var(--font-body);
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+main,
+section,
+header,
+footer {
+  max-width: 100%;
 }
 
 body.loader-active {
@@ -451,6 +460,7 @@ button.primary {
 .card,
 .story-card,
 .form-panel {
+  min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-surface);
@@ -822,6 +832,7 @@ button.primary {
 
 .form-panel {
   padding: 28px;
+  min-width: 0;
 }
 
 .form-grid {
@@ -974,25 +985,106 @@ textarea {
 }
 
 @media (max-width: 980px) {
+  .site-header {
+    position: sticky;
+    background: rgba(255, 250, 240, 0.96);
+    box-shadow: 0 10px 30px rgba(37, 24, 11, 0.08);
+    backdrop-filter: blur(14px);
+  }
+
+  .site-header:not(.scrolled):not(.solid) .brand,
+  .site-header:not(.scrolled):not(.solid) .menu-toggle {
+    color: var(--color-dark);
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    order: 1;
+  }
+
   .nav-links {
-    position: fixed;
-    inset: 0;
+    order: 3;
+    position: static;
     display: none;
+    width: 100%;
+    flex: 0 0 100%;
     flex-direction: column;
-    justify-content: center;
-    background: rgba(44, 24, 0, 0.97);
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 0 16px;
+    border-top: 1px solid rgba(213, 141, 22, 0.24);
+    background: transparent;
     color: #fffaf0;
-    font-size: 1.35rem;
+    font-size: 0.98rem;
+    text-align: right;
+    box-shadow: none;
+    transform: none;
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  .nav-links a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: var(--radius);
+    color: #fffaf0;
+    background: var(--color-dark);
+  }
+
+  .nav-links a.active,
+  .nav-links a:hover {
+    color: var(--color-dark);
+    background: #fff4dd;
+    box-shadow: inset 4px 0 0 var(--color-primary);
+  }
+
+  .nav-links a:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    color: var(--color-dark);
+    background: #fffaf0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
   .menu-toggle {
-    position: relative;
-    z-index: 60;
-    display: inline-flex;
+    order: 2;
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    z-index: 1000;
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    margin-left: auto;
+    width: 76px !important;
+    min-width: 76px;
+    max-width: 86px;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 250, 240, 0.5);
+    border-radius: var(--radius);
+    color: #fff !important;
+    background: var(--color-primary-dark) !important;
+    font-size: 0.9rem;
+    line-height: 1;
+    box-shadow: 0 8px 22px rgba(37, 24, 11, 0.14);
+    transform: none !important;
+  }
+
+  .menu-toggle:hover {
+    transform: none;
+  }
+
+  body.menu-open {
+    overflow-x: hidden;
   }
 
   .nav-cta {
@@ -1036,11 +1128,15 @@ textarea {
 
 @media (max-width: 640px) {
   .container {
-    width: min(100% - 28px, var(--max-width));
+    width: calc(100vw - 28px) !important;
+    max-width: 362px;
+    margin-right: 14px !important;
+    margin-left: 14px !important;
   }
 
   .nav {
     min-height: 70px;
+    gap: 10px;
   }
 
   .brand img {
@@ -1048,16 +1144,77 @@ textarea {
     height: 48px;
   }
 
+  .brand span {
+    font-size: 0.94rem;
+    white-space: nowrap;
+  }
+
   .hero {
-    min-height: 88vh;
+    min-height: 76vh;
+    padding-top: 96px;
+  }
+
+  .hero .container,
+  .page-hero .container {
+    width: calc(100vw - 28px) !important;
+    max-width: 362px;
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .page-hero {
+    min-height: 34vh;
+    padding: 96px 0 40px;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    display: block;
+    max-width: 100%;
+    font-size: clamp(1.75rem, 7.8vw, 2.15rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    max-width: 100%;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    overflow-wrap: anywhere;
+  }
+
+  h3,
+  p,
+  li {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero p,
+  .page-hero p {
+    width: 100% !important;
+    max-width: 100%;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+    font-size: 0.72rem;
   }
 
   .cta-row,
-  .button {
+  .button:not(.menu-toggle) {
     width: 100%;
   }
 
-  .button {
+  .button:not(.menu-toggle) {
     min-height: 50px;
   }
 
@@ -1070,6 +1227,35 @@ textarea {
 
   .story-card img {
     height: 220px;
+  }
+
+  .chairman-profile {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .chairman-profile img {
+    width: min(100%, 220px);
+    height: 260px;
+    margin: 0 auto;
+  }
+
+  .media-frame img,
+  .about-story .media-frame img {
+    height: 260px;
+  }
+
+  .filter-tabs,
+  .amount-grid {
+    gap: 8px;
+  }
+
+  .filter-button,
+  .amount-button {
+    flex: 1 1 calc(50% - 8px);
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 
   .gallery-grid {
@@ -1085,19 +1271,19 @@ textarea {
   }
 
   .cbn-portraits {
-    min-height: 390px;
+    min-height: 320px;
   }
 
   .cbn-cutout.primary {
     right: 0;
-    width: 210px;
-    height: 330px;
+    width: 185px;
+    height: 285px;
   }
 
   .cbn-cutout.secondary {
     left: 0;
-    width: 170px;
-    height: 250px;
+    width: 145px;
+    height: 220px;
   }
 
   .cbn-badge {

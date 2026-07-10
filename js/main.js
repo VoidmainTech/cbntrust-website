@@ -45,6 +45,7 @@ syncHeader();
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     const open = navLinks.classList.toggle("open");
+    document.body.classList.toggle("menu-open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
     menuToggle.textContent = open ? "Close" : "Menu";
   });
@@ -52,6 +53,7 @@ if (menuToggle && navLinks) {
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.textContent = "Menu";
     });
