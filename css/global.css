@@ -1036,17 +1036,20 @@ textarea {
     background: var(--color-dark);
   }
 
-  .nav-links a.active,
-  .nav-links a:hover {
-    color: var(--color-dark);
+  .site-header .nav-links a.active,
+  .site-header .nav-links a:hover,
+  .site-header:not(.scrolled):not(.solid) .nav-links a.active,
+  .site-header:not(.scrolled):not(.solid) .nav-links a:hover {
+    color: var(--color-dark) !important;
     background: #fff4dd;
     box-shadow: inset 4px 0 0 var(--color-primary);
   }
 
-  .nav-links a:focus-visible {
+  .site-header .nav-links a:focus-visible,
+  .site-header:not(.scrolled):not(.solid) .nav-links a:focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
-    color: var(--color-dark);
+    color: var(--color-dark) !important;
     background: #fffaf0;
   }
 
