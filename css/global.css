@@ -376,6 +376,89 @@ button.primary {
   margin-top: 24px;
 }
 
+.cbn-home-hero {
+  min-height: 92vh;
+  background:
+    linear-gradient(180deg, rgba(44, 24, 0, 0.92), rgba(44, 24, 0, 0.72)),
+    url('../assets/images/cbn-brand-image.webp') center/cover;
+}
+
+.hero-feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.hero-feature .hero-copy {
+  width: min(920px, 100%);
+  margin-top: 0;
+}
+
+.hero-centered-copy {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.hero-feature .cta-row {
+  justify-content: center;
+}
+
+.hero-cbn-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: min(680px, 100%);
+  border: 1px solid rgba(255, 250, 240, 0.28);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff, #f7f1e7);
+  box-shadow: 0 28px 54px rgba(0, 0, 0, 0.28);
+}
+
+.hero-cbn-photo img {
+  width: 100%;
+  height: clamp(340px, 46vh, 520px);
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+  object-position: center top;
+  padding: 18px 18px 104px;
+}
+
+.hero-cbn-photo figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255, 250, 240, 0.22);
+  border-radius: var(--radius);
+  color: #fffaf0;
+  background: rgba(44, 24, 0, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.hero-cbn-photo strong,
+.hero-cbn-photo span {
+  display: block;
+}
+
+.hero-cbn-photo strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.hero-cbn-photo span {
+  margin-top: 6px;
+  color: #fff4dd;
+  font-weight: 800;
+}
+
 .eyebrow {
   display: inline-flex;
   margin-bottom: 18px;
@@ -585,6 +668,111 @@ button.primary {
 
 .story-card div {
   padding: 24px;
+}
+
+.founder-inspiration {
+  background:
+    linear-gradient(180deg, #fffaf0, #fff4dd);
+}
+
+.founder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.founder-article,
+.founder-photo-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.founder-article {
+  padding: 36px;
+}
+
+.founder-article-wide {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.founder-lead {
+  color: var(--color-dark);
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.founder-photo-card {
+  overflow: hidden;
+}
+
+.founder-photo-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--color-surface-gold);
+}
+
+.founder-photo-card div {
+  padding: 24px;
+}
+
+.founder-photo-card .eyebrow {
+  color: #fff4dd;
+}
+
+.chairman-section {
+  background: #fff;
+}
+
+.chairman-modern-card {
+  display: grid;
+  justify-items: center;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, #fff, #fff8e8);
+  box-shadow: var(--shadow-primary);
+  text-align: center;
+}
+
+.chairman-modern-card > img {
+  width: min(280px, 100%);
+  height: 340px;
+  margin-bottom: 24px;
+  border: 10px solid #fff;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: top center;
+  background: var(--color-surface-gold);
+  box-shadow: var(--shadow-soft);
+}
+
+.chairman-modern-card > div {
+  width: min(680px, 100%);
+}
+
+.chairman-modern-card .eyebrow {
+  color: #fff4dd;
+}
+
+.chairman-modern-card h2 {
+  margin-bottom: 10px;
+}
+
+.chairman-modern-card h3 {
+  margin-top: 6px;
+}
+
+.chairman-modern-card .cta-row {
+  justify-content: center;
 }
 
 .trust-row {
@@ -1100,6 +1288,8 @@ textarea {
 
   .section-head,
   .split,
+  .hero-feature,
+  .founder-layout,
   .cbn-showcase,
   .grid.three,
   .grid.two,
@@ -1159,6 +1349,30 @@ textarea {
   .hero {
     min-height: 76vh;
     padding-top: 96px;
+  }
+
+  .cbn-home-hero {
+    min-height: auto;
+  }
+
+  .hero-feature {
+    gap: 28px;
+  }
+
+  .hero-cbn-photo img {
+    min-height: 360px;
+    max-height: 420px;
+  }
+
+  .hero-cbn-photo figcaption {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 14px;
+  }
+
+  .hero-cbn-photo strong {
+    font-size: 1.05rem;
   }
 
   .hero .container,
@@ -1234,6 +1448,18 @@ textarea {
 
   .story-card img {
     height: 220px;
+  }
+
+  .founder-article {
+    padding: 24px;
+  }
+
+  .founder-lead {
+    font-size: 1.02rem;
+  }
+
+  .founder-photo-card img {
+    height: 300px;
   }
 
   .chairman-profile {
