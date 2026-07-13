@@ -168,6 +168,18 @@ img {
   max-width: 100%;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -377,7 +389,7 @@ button.primary {
 }
 
 .cbn-home-hero {
-  min-height: 92vh;
+  min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(44, 24, 0, 0.92), rgba(44, 24, 0, 0.72)),
     url('../assets/images/cbn-brand-image.webp') center/cover;
@@ -386,7 +398,7 @@ button.primary {
 .hero-feature {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 22px;
   align-items: center;
   justify-items: center;
   padding-top: 20px;
@@ -394,8 +406,12 @@ button.primary {
 }
 
 .hero-feature .hero-copy {
-  width: min(920px, 100%);
+  width: min(760px, 100%);
   margin-top: 0;
+}
+
+.hero-feature .hero-copy p {
+  font-size: 1.05rem;
 }
 
 .hero-centered-copy {
@@ -412,7 +428,10 @@ button.primary {
   position: relative;
   overflow: hidden;
   margin: 0;
-  width: min(680px, 100%);
+  display: grid;
+  justify-items: center;
+  width: min(560px, 100%);
+  padding: 16px;
   border: 1px solid rgba(255, 250, 240, 0.28);
   border-radius: var(--radius);
   background: linear-gradient(180deg, #fff, #f7f1e7);
@@ -420,21 +439,17 @@ button.primary {
 }
 
 .hero-cbn-photo img {
-  width: 100%;
-  height: clamp(340px, 46vh, 520px);
-  min-height: 0;
-  max-height: none;
+  width: min(290px, 100%);
+  height: auto;
   object-fit: contain;
   object-position: center top;
-  padding: 18px 18px 104px;
+  border-radius: 2px;
 }
 
 .hero-cbn-photo figcaption {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  left: 18px;
-  padding: 18px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px;
   border: 1px solid rgba(255, 250, 240, 0.22);
   border-radius: var(--radius);
   color: #fffaf0;
@@ -449,12 +464,12 @@ button.primary {
 
 .hero-cbn-photo strong {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   line-height: 1.15;
 }
 
 .hero-cbn-photo span {
-  margin-top: 6px;
+  margin-top: 4px;
   color: #fff4dd;
   font-weight: 800;
 }
@@ -564,9 +579,9 @@ button.primary {
 
 .chairman-profile img {
   width: 150px;
-  height: 180px;
+  height: auto;
   border-radius: var(--radius);
-  object-fit: cover;
+  object-fit: contain;
   object-position: top center;
   background: var(--color-surface-gold);
 }
@@ -732,9 +747,9 @@ button.primary {
 .chairman-modern-card {
   display: grid;
   justify-items: center;
-  width: min(860px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
-  padding: 36px;
+  padding: 30px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background:
@@ -745,11 +760,11 @@ button.primary {
 
 .chairman-modern-card > img {
   width: min(280px, 100%);
-  height: 340px;
-  margin-bottom: 24px;
-  border: 10px solid #fff;
+  height: auto;
+  margin-bottom: 20px;
+  border: 8px solid #fff;
   border-radius: var(--radius);
-  object-fit: cover;
+  object-fit: contain;
   object-position: top center;
   background: var(--color-surface-gold);
   box-shadow: var(--shadow-soft);
@@ -865,6 +880,8 @@ button.primary {
 
 .cbn-portraits {
   min-height: 460px;
+  width: min(520px, 100%);
+  margin: 0 auto;
 }
 
 .cbn-cutout {
@@ -1353,21 +1370,20 @@ textarea {
 
   .cbn-home-hero {
     min-height: auto;
+    padding-top: 26px;
+    padding-bottom: 42px;
   }
 
   .hero-feature {
-    gap: 28px;
+    gap: 22px;
   }
 
   .hero-cbn-photo img {
-    min-height: 360px;
-    max-height: 420px;
+    width: min(240px, 76vw);
+    height: auto;
   }
 
   .hero-cbn-photo figcaption {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
     padding: 14px;
   }
 
@@ -1462,6 +1478,16 @@ textarea {
     height: 300px;
   }
 
+  .chairman-modern-card {
+    padding: 24px 18px;
+  }
+
+  .chairman-modern-card > img {
+    width: min(230px, 78vw);
+    height: auto;
+    margin-bottom: 18px;
+  }
+
   .chairman-profile {
     grid-template-columns: 1fr;
     text-align: left;
@@ -1469,7 +1495,7 @@ textarea {
 
   .chairman-profile img {
     width: min(100%, 220px);
-    height: 260px;
+    height: auto;
     margin: 0 auto;
   }
 
@@ -1543,3 +1569,33 @@ textarea {
   }
 }
 
+@media (max-width: 360px) {
+  .brand {
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand span {
+    font-size: 0.84rem;
+  }
+
+  .menu-toggle {
+    width: 68px !important;
+    min-width: 68px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .hero-cbn-photo {
+    padding: 12px;
+  }
+
+  .hero-cbn-photo img {
+    width: min(220px, 74vw);
+    height: auto;
+  }
+}
