@@ -426,16 +426,15 @@ button.primary {
 
 .hero-cbn-photo {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   margin: 0;
   display: grid;
   justify-items: center;
   width: min(560px, 100%);
-  padding: 16px;
-  border: 1px solid rgba(255, 250, 240, 0.28);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, #fff, #f7f1e7);
-  box-shadow: 0 28px 54px rgba(0, 0, 0, 0.28);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero-cbn-photo img {
@@ -443,7 +442,8 @@ button.primary {
   height: auto;
   object-fit: contain;
   object-position: center top;
-  border-radius: 2px;
+  border-radius: var(--radius);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.26);
 }
 
 .hero-cbn-photo figcaption {
@@ -1591,7 +1591,7 @@ textarea {
   }
 
   .hero-cbn-photo {
-    padding: 12px;
+    padding: 0;
   }
 
   .hero-cbn-photo img {
